@@ -1,0 +1,98 @@
+<!-- 탭 4를 합친 TabHost(tabwidget1,tabwidget2,tabwidget3,tabwidget4) 이 안에 layout으로 설정하였음.-->
+<!-- AutoCompleteTextView 이 뷰는 나중에 자바소스로 조정을 해야 사용이 될 것이다. -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <TabHost
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabHost"
+            android:layout_weight="0.88">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></TabWidget>
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <AutoCompleteTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:hint="이름(초성), 전화번호검색"
+                            android:completionHint=""
+                            android:maxLines="1"/>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="My Information"
+                            android:textColor="#682012"
+                            android:textSize="15sp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id = "@+id/myfaceImage"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="60dp"
+                                android:id = "@+id/mystoryText"
+                                android:textSize="30sp"
+                                android:text=""/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="My Friends"
+                            android:textColor="#682012"
+                            android:textSize="15sp"/>
+                        <ListView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/friend_list"
+                            android:scrollbars="vertical"></ListView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <ListView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/listView2"
+                            android:scrollbars="vertical"></ListView>
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+</RelativeLayout>

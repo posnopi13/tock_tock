@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidDomInspection -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.home.myapplication" >
+   <application
+        android:allowBackup="true"
+        android:icon="@drawable/naruto"
+        android:label="no"
+        android:theme="@style/AppTheme"
+        android:name=".Server.Common">
+        <receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".GcmIntentService" />
+        <activity
+            android:name=".SplashActivity"
+            android:label="TockTock" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       <activity android:name=".MainActivity" android:label="TockTock" ></activity>
+        <activity android:name=".Chatting_Activity" android:label="TockTock" ></activity>
+        <provider android:name="DataProvider"
+            android:authorities="example.com.provider.Chat">
+        </provider>
+        <uses-permission android:name="android.permission.INTERNET">
+        </uses-permission>
+    </application>
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission android:name="com.example.home.myapplication.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.home.myapplication.permission.C2D_MESSAGE" />
+
+</manifest>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/take_chatting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <ImageButton
+            android:id="@+id/take_chatting_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/take_chatting_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/take_chatting_profile"
+            android:layout_toEndOf="@+id/take_chatting_profile" />
+
+        <TextView
+            android:id="@+id/take_chatting_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="message"
+            android:paddingRight="60dp"
+            android:layout_below="@+id/take_chatting_name"
+            android:layout_toRightOf="@+id/take_chatting_profile"
+            android:layout_alignBottom="@+id/take_chatting_profile" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/give_chatting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/give_chatting_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/give_chatting_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/give_chatting_profile"
+            android:layout_toStartOf="@+id/give_chatting_profile" />
+
+        <TextView
+            android:id="@+id/give_chatting_message"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="message"
+            android:paddingLeft="60dp"
+            android:layout_below="@+id/give_chatting_name"
+            android:layout_toLeftOf="@+id/give_chatting_profile"
+            android:layout_alignBottom="@+id/give_chatting_profile" />
+    </RelativeLayout>
+
+</LinearLayout>

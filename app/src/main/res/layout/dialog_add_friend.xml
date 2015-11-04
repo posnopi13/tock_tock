@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root" android:orientation="vertical"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:gravity="center_horizontal">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView android:text="NAME" android:id="@+id/tv_name"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <EditText android:id="@+id/dialogue_friend_namee" android:layout_width="200dip"
+                android:layout_height="50dip" android:layout_marginRight="10dp" />
+            <TextView android:text="E-MAIL" android:id="@+id/tv_email"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
+            <EditText android:id="@+id/add_friend" android:layout_width="200dip"
+                android:layout_height="50dip"/>
+    </LinearLayout>
+
+</LinearLayout>
