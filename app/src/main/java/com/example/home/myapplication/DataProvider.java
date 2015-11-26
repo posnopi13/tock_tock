@@ -160,7 +160,7 @@ public class DataProvider extends ContentProvider {
                 break;
 
             case MESSAGES_SINGLEROW:
-                count = database.delete(TABLE_MESSAGES, "_id = ?", new String[]{uri.getLastPathSegment()});
+                count = database.delete(TABLE_MESSAGES, "_id = "+"'"+selection+"'", selectionArgs);
                 break;
 
             case FRIENDS_ALLROW:

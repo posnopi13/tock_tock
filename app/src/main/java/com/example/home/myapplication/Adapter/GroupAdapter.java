@@ -57,9 +57,8 @@ public class GroupAdapter extends ArrayAdapter<FriendData>{
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getContext().startActivity(intent);
             }
+
         });
-
-
         return convertView;
     }
     //static으로 생성

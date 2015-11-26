@@ -2,6 +2,8 @@ package com.example.home.myapplication;
 
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +18,10 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			singleton = this;
+			//notification 없애기
+			NotificationManager mNotificationManager = (NotificationManager)this.getSystemService(Context.NOTIFICATION_SERVICE);
+			mNotificationManager.cancel(GcmIntentService.NOTIFICATION_ID);
+
 			setContentView(R.layout.activity_splash);
 			initialize();
 

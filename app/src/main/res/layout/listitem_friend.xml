@@ -7,7 +7,7 @@
         android:id="@+id/give_chatting"
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="60dp">
 
 
         <ImageButton
@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFFFFFF"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/ic_launcher"
             android:layout_alignParentTop="true"
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="이름"
             android:textColor="#FF000000"
-            android:textSize="15sp"
+            android:textSize="10sp"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/friend_profile"
             android:layout_toEndOf="@+id/friend_profile" />
@@ -36,7 +37,7 @@
             android:id="@+id/friend_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:text="email"
             android:padding="5dp"
             android:paddingRight="50dp"

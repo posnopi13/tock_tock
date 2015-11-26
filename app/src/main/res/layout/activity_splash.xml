@@ -6,5 +6,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:background="@drawable/intro" />
+        android:background="@drawable/ic_start" />
 </LinearLayout>

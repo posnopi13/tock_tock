@@ -26,8 +26,8 @@ public class SeverUtilities {
     private Common common;
     private static final String TAG = "ServerUtilities";
 
-    private static final int MAX_ATTEMPTS = 5;
-    private static final int BACKOFF_MILLI_SECONDS = 2000;
+    private static final int MAX_ATTEMPTS = 3;
+    private static final int BACKOFF_MILLI_SECONDS = 1000;
     private static final Random random = new Random();
 
     /**
@@ -95,41 +95,14 @@ public class SeverUtilities {
         params.put(Common._FROM, Common.getMyemail());//나
         params.put(Common._TO, take);//상대
         try {
+            Log.i("MainActivity", "post 호출");
             return post(serverUrl, params, MAX_ATTEMPTS);
         } catch (IOException e) {
             Log.e("ServerUtilities",e.toString());
+            Log.i("MainActivity", "post 호출 : catch");
         }
         return null;
     }
-
-    /**
-     * Create a group.
-     */
-    /*public static String create() {
-        //Log.i(TAG, "creating group");
-        String serverUrl = Common.getServerUrl() + "/group";
-        Map<String, String> params = new HashMap<String, String>();
-
-        try {
-            return post(serverUrl, params, MAX_ATTEMPTS);
-        } catch (IOException e) {
-        }
-        return null;
-    }*/
-
-    /**
-     * Join a group.
-     */
-   /* public static void join(String to) throws IOException {
-        //Log.i(TAG, "joining group");
-        String serverUrl = Common.getServerUrl() + "/join";
-        Map<String, String> params = new HashMap<String, String>();
-        params.put(Common.FROM, Common.getChatId());
-        params.put(Common.TO, to);
-
-        post(serverUrl, params, MAX_ATTEMPTS);
-    }*/
-
     /**
      * Issue a POST request to the server.
      *
@@ -144,10 +117,11 @@ public class SeverUtilities {
         StringBuffer response = new StringBuffer();
         String myResult;
         Log.i(TAG_excutePOST,"START");
+        Log.i("MainActivity","서버에 전송시작한다.");
         try {
-
             url = new URL(endpoint);
             Log.i(TAG_excutePOST,"open url : "+url);
+            Log.i("MainActivity ","ServerUtilities : Uri 개방");
         } catch (MalformedURLException e) {
             Log.i(TAG_excutePOST,"err : "+e.toString());
             throw new IllegalArgumentException("invalid url: " + endpoint);
@@ -187,11 +161,12 @@ public class SeverUtilities {
             }
             myResult = builder.toString();
             Log.i(TAG_excutePOST,"myResult : " + myResult);
-
-            if (myResult.equals("200") || myResult.equals("300")) {
+            Log.i("MainActivity","myResult : "+ myResult);
+            if (myResult.equals("200") || myResult.equals("300") || myResult.equals("400")) {
 
             }
             else{
+                Log.i("MainActivity","서버에서 전송이 잘못됬는데? 200도 300도 400도 아니야");
                 throw new IOException("Post failed with error code ");
             }
         } finally {
@@ -206,9 +181,10 @@ public class SeverUtilities {
 
     /** Issue a POST with exponential backoff */
     private static String post(String endpoint, Map<String, String> params, int maxAttempts) throws IOException {
-        long backoff = BACKOFF_MILLI_SECONDS + random.nextInt(10);//랜덤값은 0.01초가 최대다
+        long backoff = BACKOFF_MILLI_SECONDS + random.nextInt(1000);//랜덤값은 0.01초가 최대다
         for (int i = 1; i <= maxAttempts; i++) {
             Log.i(TAG+" post", "Attempt #" + i + " to connect");
+            Log.i("MainActivity", "시도 횟수 : "+i);
             try {
                 return executePost(endpoint, params);
             } catch (IOException e) {
@@ -224,6 +200,7 @@ public class SeverUtilities {
                 }
                 backoff *= 2;
             } catch (IllegalArgumentException e) {
+                Log.i("MainActivity","서버에서 접었다. 작업");
                 throw new IOException(e.getMessage(), e);
             }
         }
